@@ -1,14 +1,28 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React, { Component } from 'react';
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
+import { subscribeToPrice} from './api';
 
-// Load foundation
-$(document).foundation();
+class App extends Component {
+  constructor(props) {
+    super(props);
+    subscribeToPrice((err, price) => this.setState({
+      price
+    }));
+  }
 
-// App css
-require('style!css!sass!applicationStyles')
+  state = {
+      price: 0
+  };
 
-ReactDOM.render(
-  <p>Boilerplate 3 Project</p>,
-  document.getElementById('app')
-);
+  render() {
+    return (
+      <div>
+        <p>
+        The BTC-USD: {this.state.price}
+        </p>
+      </div>
+    );
+  }
+}
+
+export default App;

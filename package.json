@@ -5,17 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "Andrew Mead",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.9.1",
     "express": "^4.13.4",
+    "gdax": "^0.4.2",
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
-    "react-router": "^2.0.0"
+    "react-router": "^2.0.0",
+    "socket.io": "^2.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",
@@ -35,6 +38,7 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
+    "nodemon": "^1.11.0",
     "sass-loader": "^3.1.2",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.0",
