@@ -8,7 +8,7 @@ class MainPage extends Component {
 
   render() {
     return (
-      <div className="grid-x grid-padding-x align-spaced"> 
+      <div className="grid-x grid-padding-x align-center">
         <div className="cell small-4">
           <Link className="hollow button" to="/btc">BTC Price</Link>
         </div>
