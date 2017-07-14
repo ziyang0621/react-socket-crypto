@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
-import { subscribeToPrice} from './api';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import MainPage from './pages/MainPage';
+import BTCPage from './pages/BTCPage';
+import ETHPage from './pages/ETHPage';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    subscribeToPrice((err, price) => this.setState({
-      price
-    }));
   }
-
-  state = {
-      price: 0
-  };
 
   render() {
     return (
-      <div>
-        <p>
-        The BTC-USD: {this.state.price}
-        </p>
+      <div id="test">
+        <p>Crypto Price</p>
+        <BrowserRouter>
+          <div>
+            <Switch>
+              <Route path="/eth" component={ETHPage} />
+              <Route path="/btc" component={BTCPage} />
+              <Route exact path="/" component={BTCPage} />
+            </Switch>
+          </div>
+        </BrowserRouter>
       </div>
     );
   }

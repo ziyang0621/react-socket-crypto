@@ -9,6 +9,6 @@ $(document).foundation();
 require('style!css!sass!applicationStyles');
 
 ReactDOM.render(
-  <App/>,
+  <App />,
   document.getElementById('app')
 );
