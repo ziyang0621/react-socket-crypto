@@ -8,7 +8,7 @@ const Gdax = require('gdax');
 // Create our app
 const PORT = process.env.PORT || 3000;
 const router = express.Router();
-const websocket = new Gdax.WebsocketClient(['BTC-USD']);
+// const websocket = new Gdax.WebsocketClient(['BTC-USD']);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -20,18 +20,18 @@ app.use(function (req, res, next) {
   }
 });
 
-io.on('connection', (client) => {
-  client.on('subscribeToPrice', (interval) => {
-    setInterval(() => {
-      websocket.on('message', (data) => {
-        console.log('the price', data.price);
-        client.emit('price', data.price);
-      });
-    }, interval);
-  });
-});
+// io.on('connection', (client) => {
+//   client.on('subscribeToPrice', (interval) => {
+//     setInterval(() => {
+//       websocket.on('message', (data) => {
+//         console.log('the price', data.price);
+//         client.emit('price', data.price);
+//       });
+//     }, interval);
+//   });
+// });
 
-router.get('/*', function (req, res, next) {
+router.get('/*', (req, res, next) => {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
