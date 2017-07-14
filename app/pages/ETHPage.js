@@ -5,10 +5,14 @@ class ETHPage extends Component {
     console.log('ETHPage did mount');
   }
 
+  state = {
+      price: 0
+  };
+
   render() {
     return (
       <div>
-        ETHPage
+        ETH Price: {this.state.price}
       </div>
     );
   }

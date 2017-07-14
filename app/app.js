@@ -12,14 +12,14 @@ class App extends Component {
 
   render() {
     return (
-      <div id="test">
+      <div>
         <p>Crypto Price</p>
         <BrowserRouter>
           <div>
             <Switch>
-              <Route path="/eth" component={ETHPage} />
+              <Route exact path="/" component={MainPage} />
               <Route path="/btc" component={BTCPage} />
-              <Route exact path="/" component={BTCPage} />
+              <Route path="/eth" component={ETHPage} />
             </Switch>
           </div>
         </BrowserRouter>
